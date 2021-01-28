@@ -4,6 +4,8 @@
 #define MAT4_EPSILON 0.0000001f
 #include "vec4.h"
 #include "vec3.h"
+#include <iostream>
+
 struct mat4
 {
 	union
@@ -68,5 +70,20 @@ struct mat4
 bool operator==(const mat4& a, const mat4& b);
 bool operator!=(const mat4& a, const mat4& b);
 mat4 operator+ (const mat4& a, const mat4& b);
-
+mat4 operator*(const mat4& m, float f);
+mat4 operator* (const mat4& a, const mat4& b);
+vec4 operator* (const mat4& m, const vec4& v);
+vec3 transformVector(const mat4& m, const vec3& v);
+vec3 transformPoint(const mat4& m, const vec3& v);
+vec3 transformPoint(const mat4& m, const vec3& v, float& w);
+void transpose(mat4& m);
+mat4 transposed(const mat4& m);
+float determinant(const mat4& m);
+mat4 adjugate(const mat4& m);
+mat4 inverse(const mat4& m);
+void invert(mat4& m);
+mat4 frustum(float l, float r, float b, float t, float n, float f);
+mat4 perspective(float fov, float aspect, float n, float f);
+mat4 ortho(float l, float r, float b, float t, float n, float f);
+mat4 lookAt(const vec3& position, const vec3& target, const vec3& up);
 #endif
