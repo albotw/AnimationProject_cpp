@@ -1,5 +1,67 @@
 #include "vec3.h"
 
+vec3 operator+ (const vec3& l, const vec3& r)
+{
+	return vec3(l.x + r.x, l.y + r.y, l.z + r.z);
+}
+
+vec3 operator- (const vec3& l, const vec3& r)
+{
+	return vec3(l.x - r.x, l.y - r.y, l.z - r.z);
+}
+
+vec3 operator* (const vec3& v, float f)
+{
+	return vec3(v.x * f, v.y * f, v.z * f);
+}
+
+vec3 operator* (const vec3& l, const vec3& r)
+{
+	return vec3(l.x * r.x, l.y * r.y, l.z * r.z);
+}
+
+/*produit scalaire*/
+//positif: pointent dans la même dir
+//négatif: pointent en direction opposée
+//0 : vecteurs perpendiculaires.
+float dot(const vec3& l, const vec3& r)
+{
+	return l.x * r.x + l.y * r.y + l.z * r.z;
+}
+
+float lenSq(const vec3& v)
+{
+	return v.x * v.x + v.y * v.y + v.z * v.z;
+}
+
+/*taille tridimensionnelle (basé sur length²(A) = dot(A, A))*/
+//on peut calculer la distance entre deux vecteurs comme ça: float distance = length(vec1 - vec2)
+//vérif de taille plus opti: dot(A, A) < 5 * 5
+float length(const vec3& v)
+{
+	float lsq = lenSq(v);
+	if (lsq < VEC3_EPSILON)
+	{
+		return 0.0f;
+	}
+	return sqrtf(lsq);
+}
+
+
+/*Normalisation sur place*/
+void normalize(vec3& v)
+{
+	float lsq = lenSq(v);
+	if (lsq < VEC3_EPSILON)
+	{
+		return;
+	}
+	float invLength = 1.0f / sqrtf(lsq);
+	v.x *= invLength;
+	v.y *= invLength;
+	v.z *= invLength;
+}
+
 vec3 normalized(const vec3& v)
 {
 	float lsq = lenSq(v);

@@ -1,10 +1,11 @@
 #pragma once
-#ifndef _H_MAT4_
-#define _H_MAT4_
-#define MAT4_EPSILON 0.0000001f
+
 #include "vec4.h"
 #include "vec3.h"
 #include <iostream>
+
+#define MAT4_EPSILON 0.0000001f
+
 
 struct mat4
 {
@@ -86,4 +87,3 @@ mat4 frustum(float l, float r, float b, float t, float n, float f);
 mat4 perspective(float fov, float aspect, float n, float f);
 mat4 ortho(float l, float r, float b, float t, float n, float f);
 mat4 lookAt(const vec3& position, const vec3& target, const vec3& up);
-#endif

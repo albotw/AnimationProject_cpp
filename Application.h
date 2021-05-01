@@ -1,6 +1,4 @@
 #pragma once
-#ifndef _H_APPLICATION_
-#define _H_APPLICATION_
 
 class Application
 {
@@ -16,5 +14,3 @@ public:
 	inline virtual void Render(float inAspectRatio) { }
 	inline virtual void Shutdown() { }
 };
-
-#endif

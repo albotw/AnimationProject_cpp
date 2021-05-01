@@ -1,5 +1,5 @@
 #include "mat4.h"
-#include <math.h>
+
 bool operator==(const mat4& a, const mat4& b)
 {
 	for (int i = 0; i < 16; i++)
