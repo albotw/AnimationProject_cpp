@@ -3,7 +3,7 @@
 #include <map>
 #include <fstream>
 #include <sstream>
-#include "GL/glad.h"
+#include "../GL/glad.h"
 using namespace std;
 
 

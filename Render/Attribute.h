@@ -1,5 +1,9 @@
 #pragma once
 #include <vector>
+#include "../Math/vec2.h"
+#include "../Math/vec3.h"
+#include "../Math/vec4.h"
+#include "../GL/glad.h"
 
 using namespace std;
 
